@@ -1,9 +1,7 @@
 package nl.miwgroningen.cohort3.jasmijn.portfolio.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Category {
@@ -14,4 +12,32 @@ public class Category {
 
     private String name;
 
+    @OneToMany( cascade = CascadeType.ALL,
+                fetch = FetchType.LAZY,
+                mappedBy = "category")
+    private List<Criterium> criteria;
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Criterium> getCriteria() {
+        return criteria;
+    }
+
+    public void setCriteria(List<Criterium> criteria) {
+        this.criteria = criteria;
+    }
 }
