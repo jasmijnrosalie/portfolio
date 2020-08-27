@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Review details</title>
+    <link rel="stylesheet" type="text/css" href="portfolio.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1 th:text="${review.description}">Description: </h1>
+<h2>Review details:</h2>
+<table>
+    <tr>
+        <td>Git commit</td>
+        <td th:text="${review.gitCommit}"></td>
+    </tr>
+    <tr>
+        <td>Category</td>
+        <td th:text="${review.criterium.category.name}"></td>
+    </tr>
+    <tr>
+        <td>Criterium</td>
+        <td th:text="${review.criterium.description}"></td>
+    </tr>
+    <tr>
+        <td>Points</td>
+        <td th:text="${review.criterium.points}"></td>
+    </tr>
+    <tr>
+        <td>Priority</td>
+        <td th:text="${review.priority}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
+

@@ -2,8 +2,10 @@ package nl.miwgroningen.cohort3.jasmijn.portfolio.model;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,7 +14,8 @@ public class Target {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer targetId;
 
-    private Date targetDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate targetDate;
 
     private String description;
 
@@ -37,11 +40,11 @@ public class Target {
         this.targetId = targetId;
     }
 
-    public Date getTargetDate() {
+    public LocalDate getTargetDate() {
         return targetDate;
     }
 
-    public void setTargetDate(Date targetDate) {
+    public void setTargetDate(LocalDate targetDate) {
         this.targetDate = targetDate;
     }
 

@@ -2,6 +2,7 @@ package nl.miwgroningen.cohort3.jasmijn.portfolio.controller;
 
 import nl.miwgroningen.cohort3.jasmijn.portfolio.model.Category;
 import nl.miwgroningen.cohort3.jasmijn.portfolio.model.Criterium;
+import nl.miwgroningen.cohort3.jasmijn.portfolio.model.Review;
 import nl.miwgroningen.cohort3.jasmijn.portfolio.repository.CategoryRepository;
 import nl.miwgroningen.cohort3.jasmijn.portfolio.repository.CriteriumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,10 @@ public class CriteriumController {
         model.addAttribute("categoryList", categoryRepository.findAll());
         return "criteriumForm";
     }
+
+    // onderstaande werkt nog niet, daarom staat er een sout tussen, die geeft aan dat er iets misgaat met het datatype
+    // (krijgt String terwijl hij een Integer verwacht). Wel vreemd, want naar mijn weten heb ik bij de reviewController
+    // precies hetzelfde gedaan en daar werkt het wel.
 
     @PostMapping("/criteria/add")
     protected String saveOrUpdateCategory(@ModelAttribute("criterium") Criterium criterium, BindingResult result){

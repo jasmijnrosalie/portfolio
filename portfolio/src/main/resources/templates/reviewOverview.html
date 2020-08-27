@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Review Overview</title>
+    <link rel="stylesheet" type="text/css" href="portfolio.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Reviews</h1>
+
+<table>
+    <tr>
+        <th>Description</th>
+        <th>Git commit</th>
+        <th>Category</th>
+        <th>Points</th>
+        <th>Priority</th>
+    </tr>
+    <tr th:each="review: ${allReviews}">
+        <td>
+            <a th:href="@{/review/{reviewId}(reviewId=${review.reviewId})}"><span th:text="${review.description}"></span> </a>
+        </td>
+        <td th:text="${review.description}" />
+        <td th:text="${review.gitCommit}" />
+        <td th:text="${review.criterium.category.name}" />
+        <td th:text="${review.criterium.points}" />
+        <td th:text="${review.priority}" />
+    </tr>
+</table>
+
+<div>
+    <a th:href="@{/reviews/add}">Add review</a>
+</div>
+
+<div>
+    <a th:href="@{/}">Back to overview</a>.
+</div>
+
+</body>
+</html>
